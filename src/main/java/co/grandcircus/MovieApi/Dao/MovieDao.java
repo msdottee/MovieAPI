@@ -10,7 +10,10 @@ import co.grandcircus.MovieApi.Entity.Movie;
 public interface MovieDao extends JpaRepository<Movie, Long>{
 
 	List<Movie> findByTitleContaining(String title);
-	List<Movie> findByCategoryContaining(String category);
-	@Query(value = "SELECT category FROM Movie")
+	
+	
+	List<Movie> findByCategory(String category);
+	
+	@Query(value = "SELECT DISTINCT category FROM Movie")
 	List<String> listofCategories();
 }
